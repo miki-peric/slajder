@@ -40,17 +40,18 @@ sliderContainer.scrollLeft = (sliderActive.parentElement.scrollWidth - sliderAct
 
 sliderActive.parentElement.addEventListener('scroll', (e) => {
     console.log(getScrollPercentage()); 
-    console.log('scroll width' + sliderActive.parentElement.scrollWidth);
-    console.log('client width' + sliderActive.parentElement.clientWidth);
-    console.log('scroll left' + sliderActive.parentElement.scrollLeft);
+    // console.log('scroll width' + sliderActive.parentElement.scrollWidth);
+    // console.log('client width' + sliderActive.parentElement.clientWidth);
+    // console.log('scroll left' + sliderActive.parentElement.scrollLeft);
     const scrollPercentage = getScrollPercentage();
-    if(scrollPercentage == 0) {
+    if(scrollPercentage <= 20) {
         sliderStatus = -1;
-    } else if(scrollPercentage == 100) {
+    } else if(scrollPercentage >= 80) {
         sliderStatus = 1;
     } else {
         sliderStatus = 0;
     } 
+    console.log(sliderStatus);
 });
 
 sliderActive.addEventListener('mousedown', (e) => {
@@ -103,6 +104,8 @@ function nextSlide() {
     if(currentMainSlider < 5) {
         sliderFullWidth.style.left = '-' + oneMainSliderPositions[++currentMainSlider] + 'px';
         setTimeout(setScrollLeft, 100);
+    } else {
+        setScrollLeft();
     }
 }
 
@@ -110,6 +113,8 @@ function previousSlide() {
     if(currentMainSlider > 0) {
         sliderFullWidth.style.left = '-' + oneMainSliderPositions[--currentMainSlider] + 'px';
         setTimeout(setScrollLeft, 100);
+    } else {
+        setScrollLeft();
     }
 }
 
@@ -134,29 +139,3 @@ function setScrollLeft() {
         behavior: 'smooth'
       });
 }
-
-// const element = document.getElementById('yourElementId');
-// const scrollAmount = 200; // The amount of scroll in pixels
-// const scrollDuration = 1000; // The duration of the scroll animation in milliseconds
-
-// const startPosition = element.scrollLeft;
-// const targetPosition = startPosition - scrollAmount;
-
-// const startTime = performance.now();
-// function scrollHorizontally(timestamp) {
-//   const elapsed = timestamp - startTime;
-//   const progress = Math.min(elapsed / scrollDuration, 1);
-//   const currentPosition = startPosition - (scrollAmount * progress);
-
-//   element.scrollTo(currentPosition, 0);
-
-//   if (progress < 1) {
-//     requestAnimationFrame(scrollHorizontally);
-//   }
-// }
-
-// requestAnimationFrame(scrollHorizontally);
-
-// function setScrollLeft() {
-//     //sliderActive.parentElement.scrollLeft
-// }
