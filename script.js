@@ -102,14 +102,14 @@ function getScrollPercentage(){
 function nextSlide() { 
     if(currentMainSlider < 5) {
         sliderFullWidth.style.left = '-' + oneMainSliderPositions[++currentMainSlider] + 'px';
-        // setScrollLeft();
+        setTimeout(setScrollLeft, 100);
     }
 }
 
 function previousSlide() {
     if(currentMainSlider > 0) {
         sliderFullWidth.style.left = '-' + oneMainSliderPositions[--currentMainSlider] + 'px';
-        // setScrollLeft();
+        setTimeout(setScrollLeft, 100);
     }
 }
 
@@ -117,21 +117,18 @@ function previousSlide() {
 function sliderControl() {
     if(sliderStatus === -1) {
         previousSlide();
-        setScrollLeft();
         sliderStatus = 0;
     } else if(sliderStatus === 1) {
         nextSlide();
-        setScrollLeft();
-        // sliderContainer.scrollLeft = (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) / 2;
         sliderStatus = 0;
     } else if(sliderStatus === 0){
         sliderStatus = 0;
         setScrollLeft();
-        // sliderContainer.scrollLeft = (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) / 2;
     }
 }
 
 function setScrollLeft() {
+    console.log('STAVLJA NA: ' + (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) / 2);
     sliderActive.parentElement.scrollTo({
         left: (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) / 2,
         behavior: 'smooth'
