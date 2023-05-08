@@ -78,8 +78,9 @@ header {
 .slider-container {
     position: relative;
     width: 100%;
-    /* overflow: scroll; */
-    overflow: hidden;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /*Firefox */
 }
 
 .slider-active {

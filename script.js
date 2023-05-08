@@ -51,3 +51,5 @@ sliderActive.addEventListener('wheel', (e) =>{
 function getScrollPercentage(){
    return ((sliderActive.parentElement.scrollLeft / (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) ) * 100);
 }
+
+sliderActive.addEventListener('click', () => {console.log('tuki')});
