@@ -107,6 +107,7 @@ header {
     display: flex;
     flex-direction: row;
     left: 0px;
+    transition: left 1s ease;
 }
 
 .slide {
