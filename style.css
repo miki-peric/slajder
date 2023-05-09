@@ -3,6 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root {
+    /* --background-color: #FFFFFF; */
+    --sliderRed: #c7363d;
+    --navigationRed: rgba(199, 54, 61, 0.1);
+    --navigationSilver: #CCCCCC;
+    --simpleCardsBlue: #0C71C3;
+}
 /* ======================================  */
 main {
     background-color: burlywood;
@@ -107,7 +115,7 @@ header {
     height: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
 }
 
 .sliderMain-LeftBtn {
@@ -116,6 +124,23 @@ header {
 
 .sliderMain-RightBtn {
     background-image: url(SLIKE/arrow_forward_ios_FILL0_wght400_GRAD0_opsz48.svg);
+}
+
+.sliderMain-dots {
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    bottom: -25px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.mainDot {
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 1px solid var(--simpleCardsBlue);
+    background-color: transparent;
 }
 
 @media only screen and (max-width: 767px) {
@@ -151,6 +176,19 @@ header {
 
     .sliderMain-container {
         height: 450px;
+    }
+
+    .sliderMain-LeftBtn:hover,
+    .sliderMain-RightBtn:hover {
+        background-color: rgba(128, 128, 128, 0.473);
+    }
+
+    .sliderMain-dots {
+        justify-content: center;
+    }
+
+    .mainDot {
+        margin: 0px 20px;
     }
 }
 

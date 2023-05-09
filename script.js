@@ -3,6 +3,9 @@ const mainSliderArr = ['1', '2', '3', '4', '5'];
 const sliderActive = document.querySelector('.sliderMain-active');
 const mainSliderLeft = document.querySelector('.sliderMain .sliderMain-Buttons .sliderMain-LeftBtn');
 const mainSliderRight = document.querySelector('.sliderMain .sliderMain-Buttons .sliderMain-RightBtn');
+const mainDots = document.querySelectorAll('.sliderMain-dots .mainDot');
+const mainDotsArr = Array.from(mainDots);
+
 
 let oneMainSliderWidth;
 //podesavanja za mobilni
@@ -39,14 +42,14 @@ let currentMainSlider = 0;
 let sliderGrabbed = false;
 let sliderStatus = 0;
 sliderContainer.scrollLeft = (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) / 2;
-
+colorMainDots(currentMainSlider);
 
 
 
 
 
 sliderActive.parentElement.addEventListener('scroll', (e) => {
-    console.log(getScrollPercentage()); 
+    // console.log(getScrollPercentage()); 
     const scrollPercentage = getScrollPercentage();
     if(scrollPercentage <= 40) {
         sliderStatus = -1;
@@ -106,6 +109,15 @@ mainSliderRight.addEventListener('click', () => {
     nextSlide();
 });
 
+mainDotsArr.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentMainSlider = index;
+        sliderFullWidth.style.left = '-' + oneMainSliderPositions[currentMainSlider] + 'px';
+        setTimeout(setScrollLeft, 100);
+        colorMainDots(currentMainSlider);
+    });
+});
+
 
 function getScrollPercentage(){
    return ((sliderActive.parentElement.scrollLeft / (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) ) * 100);
@@ -115,6 +127,7 @@ function nextSlide() {
     if(currentMainSlider < 4) {
         sliderFullWidth.style.left = '-' + oneMainSliderPositions[++currentMainSlider] + 'px';
         setTimeout(setScrollLeft, 100);
+        colorMainDots(currentMainSlider);
     } else {
         setScrollLeft();
     }
@@ -124,6 +137,7 @@ function previousSlide() {
     if(currentMainSlider > 0) {
         sliderFullWidth.style.left = '-' + oneMainSliderPositions[--currentMainSlider] + 'px';
         setTimeout(setScrollLeft, 100);
+        colorMainDots(currentMainSlider);
     } else {
         setScrollLeft();
     }
@@ -147,4 +161,12 @@ function setScrollLeft() {
         left: (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) / 2,
         behavior: 'smooth'
       });
+}
+
+function colorMainDots(i) {
+    const other = mainDotsArr.filter((dot, index) => index != i);
+    other.forEach(dot => {
+        dot.style.backgroundColor = 'transparent';
+    });
+    mainDotsArr[i].style.backgroundColor = '#0C71C3';
 }
