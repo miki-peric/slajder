@@ -39,10 +39,7 @@ let sliderStatus = 0;
 sliderContainer.scrollLeft = (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) / 2;
 
 sliderActive.parentElement.addEventListener('scroll', (e) => {
-    console.log(getScrollPercentage()); 
-    // console.log('scroll width' + sliderActive.parentElement.scrollWidth);
-    // console.log('client width' + sliderActive.parentElement.clientWidth);
-    // console.log('scroll left' + sliderActive.parentElement.scrollLeft);
+    // console.log(getScrollPercentage()); 
     const scrollPercentage = getScrollPercentage();
     if(scrollPercentage <= 20) {
         sliderStatus = -1;
@@ -118,7 +115,6 @@ function previousSlide() {
     }
 }
 
-
 function sliderControl() {
     if(sliderStatus === -1) {
         previousSlide();
@@ -133,7 +129,6 @@ function sliderControl() {
 }
 
 function setScrollLeft() {
-    console.log('STAVLJA NA: ' + (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) / 2);
     sliderActive.parentElement.scrollTo({
         left: (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) / 2,
         behavior: 'smooth'
