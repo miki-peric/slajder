@@ -1,6 +1,8 @@
 const mainSliderArr = ['1', '2', '3', '4', '5'];
 
 const sliderActive = document.querySelector('.sliderMain-active');
+const mainSliderLeft = document.querySelector('.sliderMain .sliderMain-Buttons .sliderMain-LeftBtn');
+const mainSliderRight = document.querySelector('.sliderMain .sliderMain-Buttons .sliderMain-RightBtn');
 
 let oneMainSliderWidth;
 //podesavanja za mobilni
@@ -96,9 +98,13 @@ sliderActive.addEventListener('touchend', (e) => {
     sliderControl();
 });
 
+mainSliderLeft.addEventListener('click', () => {
+    previousSlide();
+});
 
-
-
+mainSliderRight.addEventListener('click', () => {
+    nextSlide();
+});
 
 
 function getScrollPercentage(){
@@ -106,7 +112,7 @@ function getScrollPercentage(){
 }
 
 function nextSlide() { 
-    if(currentMainSlider < 5) {
+    if(currentMainSlider < 4) {
         sliderFullWidth.style.left = '-' + oneMainSliderPositions[++currentMainSlider] + 'px';
         setTimeout(setScrollLeft, 100);
     } else {

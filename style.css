@@ -88,6 +88,36 @@ header {
     background-color: green;
 }
 
+.sliderMain {
+    position: relative;
+}
+
+.sliderMain-Buttons {
+    position: absolute;
+    width: 108px;
+    height: 54px;
+    left: 0px;
+    bottom: 0px;
+    display: flex;
+}
+
+.sliderMain-LeftBtn,
+.sliderMain-RightBtn {
+    width: 50%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid blue;
+}
+
+.sliderMain-LeftBtn {
+    background-image: url(SLIKE/arrow_back_ios_new_FILL0_wght400_GRAD0_opsz48.svg);
+}
+
+.sliderMain-RightBtn {
+    background-image: url(SLIKE/arrow_forward_ios_FILL0_wght400_GRAD0_opsz48.svg);
+}
+
 @media only screen and (max-width: 767px) {
     .sliderMain-container {
         height: 620px;
