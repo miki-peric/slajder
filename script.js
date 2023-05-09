@@ -1,12 +1,12 @@
 const mainSliderArr = ['1', '2', '3', '4', '5'];
 
-const sliderActive = document.querySelector('.slider-active');
+const sliderActive = document.querySelector('.sliderMain-active');
 
 let oneMainSliderWidth;
 //podesavanja za mobilni
-const sliderContainer = document.querySelector('.slider-container');
-const sliderFullWidth = document.querySelector('.slider-container .slider-fullwidth');
-const sliderSlide = document.querySelectorAll('.slider-container .slide');
+const sliderContainer = document.querySelector('.sliderMain-container');
+const sliderFullWidth = document.querySelector('.sliderMain-container .sliderMain-fullwidth');
+const sliderSlide = document.querySelectorAll('.sliderMain-container .slide');
 const slidesArr = Array.from(sliderSlide);
 
 if (window.innerWidth < 768) {
@@ -38,6 +38,11 @@ let sliderGrabbed = false;
 let sliderStatus = 0;
 sliderContainer.scrollLeft = (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) / 2;
 
+
+
+
+
+
 sliderActive.parentElement.addEventListener('scroll', (e) => {
     console.log(getScrollPercentage()); 
     const scrollPercentage = getScrollPercentage();
@@ -54,24 +59,24 @@ sliderActive.parentElement.addEventListener('scroll', (e) => {
 sliderActive.addEventListener('mousedown', (e) => {
     sliderGrabbed = true;
     sliderActive.style.cursor = 'grabbing';
-})
+});
 
 sliderActive.addEventListener('mouseup', (e) => {
     sliderGrabbed = false;
     sliderActive.style.cursor = 'grab';
     sliderControl();
-})
+});
 
 sliderActive.addEventListener('mouseleave', (e) => {
     sliderGrabbed = false;
     sliderControl();
-})
+});
 
 sliderActive.addEventListener('mousemove', (e) => {
     if(sliderGrabbed){
         sliderActive.parentElement.scrollLeft -= e.movementX;
     }
-})
+});
 
 sliderActive.addEventListener('touchstart', (e) => {
     sliderGrabbed = true;
@@ -91,11 +96,14 @@ sliderActive.addEventListener('touchend', (e) => {
     sliderControl();
 });
 
+
+
+
+
+
 function getScrollPercentage(){
    return ((sliderActive.parentElement.scrollLeft / (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) ) * 100);
 }
-
-
 
 function nextSlide() { 
     if(currentMainSlider < 5) {
