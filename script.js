@@ -41,9 +41,9 @@ sliderContainer.scrollLeft = (sliderActive.parentElement.scrollWidth - sliderAct
 sliderActive.parentElement.addEventListener('scroll', (e) => {
     console.log(getScrollPercentage()); 
     const scrollPercentage = getScrollPercentage();
-    if(scrollPercentage <= 30) {
+    if(scrollPercentage <= 40) {
         sliderStatus = -1;
-    } else if(scrollPercentage >= 70) {
+    } else if(scrollPercentage >= 60) {
         sliderStatus = 1;
     } else {
         sliderStatus = 0;
