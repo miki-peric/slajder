@@ -39,16 +39,16 @@ let sliderStatus = 0;
 sliderContainer.scrollLeft = (sliderActive.parentElement.scrollWidth - sliderActive.parentElement.clientWidth) / 2;
 
 sliderActive.parentElement.addEventListener('scroll', (e) => {
-    // console.log(getScrollPercentage()); 
+    console.log(getScrollPercentage()); 
     const scrollPercentage = getScrollPercentage();
-    if(scrollPercentage <= 20) {
+    if(scrollPercentage <= 30) {
         sliderStatus = -1;
-    } else if(scrollPercentage >= 80) {
+    } else if(scrollPercentage >= 70) {
         sliderStatus = 1;
     } else {
         sliderStatus = 0;
     } 
-    console.log(sliderStatus);
+    // console.log(sliderStatus);
 });
 
 sliderActive.addEventListener('mousedown', (e) => {
