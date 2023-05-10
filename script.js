@@ -1,4 +1,4 @@
-const mainSliderArr = ['1', '2', '3', '4', '5'];
+// const mainSliderArr = ['1', '2', '3', '4', '5'];
 
 const sliderActive = document.querySelector('.sliderMain-active');
 const mainSliderLeft = document.querySelector('.sliderMain .sliderMain-Buttons .sliderMain-LeftBtn');
