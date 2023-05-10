@@ -74,7 +74,7 @@ header {
     left: -10%;
     width: 120%;
     height: 100%;
-    background-color: rgba(0, 255, 255, 0.377);
+    /* background-color: rgba(0, 255, 255, 0.377); */
     overflow: hidden;
 }
 
@@ -88,12 +88,12 @@ header {
 }
 
 .slide {
-    background-color: red;
+    /* background-color: red; */
     height: 100%;
 }
 
 .slide:nth-child(odd) {
-    background-color: green;
+    /* background-color: green; */
 }
 
 .sliderMain {
@@ -145,7 +145,7 @@ header {
 
 @media only screen and (max-width: 767px) {
     .sliderMain-container {
-        height: 620px;
+        height: 650px;
     }
 }
 
@@ -160,7 +160,7 @@ header {
     }
 
     .sliderMain-container {
-        height: 620px;
+        height: 650px;
     }
 }
 
@@ -207,4 +207,99 @@ header {
     }
 }
 
-/* sadrzina slidera*/
+/* ==================================================== */
+.sliderMain .slideContent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: darkgreen; */
+}
+
+.sliderMain .slideContent > .slideText {
+    position: absolute;
+    width: 100%;
+    /* padding: 15px; */
+    /* padding-top: 20px; */
+    /* background-color: pink; */
+    padding: 0px 5px;
+    height: 60%;
+}
+
+.sliderMain .slideContent > .sliderPhoto {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 1%;
+    height: 45%;
+    bottom: 0;
+    /* background-color: black; */
+}
+
+.sliderMain .slideContent > .slideText > h1 {
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+.sliderMain .slideContent > .slideText > h1 a:link, .sliderMain .slideContent > .slideText > h1 a:visited{
+    text-decoration: none;
+    color: var(--sliderRed);
+    transition: 0.5s ease;
+}
+
+.sliderMain .slideContent > .slideText > h1 a:hover {
+    color: black;
+} 
+
+.sliderMain .slideContent > .slideText > p {
+    font-size: 18px;
+    text-align: justify;
+}
+
+.sliderMain .slideContent > .slideText > h3 {
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+.sliderMain .slideContent > .sliderPhoto > .sliderPhotoPlace {
+    width: 100%;
+    height: 100%;
+    /* background-color: #c7363d; */
+    display: flex;
+    justify-content: center;
+    background-image: url(SLIKE/defaultPicture.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (min-width: 1024px) {
+    .sliderMain .slideContent {
+        flex-direction: row;
+    }
+
+    .sliderMain .slideContent > .slideText {
+        position: relative;
+        width: 40%;
+        height: 100%;
+    }
+
+    .sliderMain .slideContent > .sliderPhoto {
+        position: relative;
+        width: 60%;
+        height: 100%;
+    }
+
+    .sliderMain .slideContent > .sliderPhoto > .sliderPhotoPlace {
+        width: 95%;
+        height: 400px;
+        box-shadow: 10px 10px #CCCCCC;
+        transition: all 1s ease-out;
+    }
+
+    .sliderMain .slideContent > .sliderPhoto > .sliderPhotoPlace:hover {
+        box-shadow: 10px 10px var(--sliderRed);
+    }
+}
